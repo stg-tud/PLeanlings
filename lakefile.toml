@@ -1,0 +1,10 @@
+name = "leanlings"
+version = "0.1.0"
+defaultTargets = ["leanlings"]
+
+[[lean_lib]]
+name = "Leanlings"
+
+[[lean_exe]]
+name = "leanlings"
+root = "Main"
