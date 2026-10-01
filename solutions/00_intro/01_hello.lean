@@ -1,15 +1,15 @@
 /-
 # 00.01 — Hello, Lean!
 
-Welcome to Leanlings! Each exercise is a small Lean file like this one.
+Welcome to PLeanlings! Each exercise is a small Lean file like this one.
 Your job is always the same: make the file compile **without errors** and
 **without any `sorry`**.
 
 `sorry` is Lean's placeholder for "I'll fill this in later". Lean accepts a
 `sorry` anywhere, but prints the warning `declaration uses 'sorry'`. The
-`leanlings` runner treats every `sorry` as "not done yet".
+`pleanlings` runner treats every `sorry` as "not done yet".
 
-Keep `lake exe leanlings` running in a terminal. It re-checks the current
+Keep `lake exe pleanlings` running in a terminal. It re-checks the current
 exercise each time you save. Open the file in VS Code with the Lean 4
 extension to see Lean's feedback live in the *infoview* panel.
 
@@ -26,7 +26,7 @@ Replace the `sorry` in `greeting` with the string `"Hello, Lean!"`.
 -/
 
 #eval 1 + 2
-#check "Leanlings"
+#check "PLeanlings"
 
 def greeting : String := "Hello, Lean!"
 

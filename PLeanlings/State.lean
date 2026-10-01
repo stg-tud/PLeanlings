@@ -1,10 +1,10 @@
-import Leanlings.Exercise
+import PLeanlings.Exercise
 
-/-! Progress is stored as one exercise id per line in `.leanlings-state`. -/
+/-! Progress is stored as one exercise id per line in `.pleanlings-state`. -/
 
-namespace Leanlings
+namespace PLeanlings
 
-def stateFile : System.FilePath := ".leanlings-state"
+def stateFile : System.FilePath := ".pleanlings-state"
 
 def loadDone : IO (List String) := do
   unless ← stateFile.pathExists do return []
@@ -26,4 +26,4 @@ def firstPending (exs : Array Exercise) (done : List String) : Option Exercise :
   exs.find? (fun e => !e.isBonus && !done.contains e.id)
     |>.orElse fun _ => exs.find? (fun e => !done.contains e.id)
 
-end Leanlings
+end PLeanlings

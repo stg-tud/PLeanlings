@@ -9,7 +9,7 @@ The order of exercises is the lexicographic order of their paths.
 Chapters numbered `bonusFrom` or higher are optional bonus chapters.
 -/
 
-namespace Leanlings
+namespace PLeanlings
 
 /-- Chapters with a number at least this large are bonus chapters. -/
 def bonusFrom : Nat := 17
@@ -53,7 +53,7 @@ private def sortedDir (dir : System.FilePath) : IO (Array IO.FS.DirEntry) := do
 def discover : IO (Array Exercise) := do
   let root : System.FilePath := "exercises"
   unless ← root.isDir do
-    throw <| IO.userError "No `exercises/` directory found. Run leanlings from the repository root."
+    throw <| IO.userError "No `exercises/` directory found. Run pleanlings from the repository root."
   let mut out := #[]
   for ch in ← sortedDir root do
     unless ← ch.path.isDir do continue
@@ -62,4 +62,4 @@ def discover : IO (Array Exercise) := do
         out := out.push { chapter := ch.fileName, name := (f.fileName.dropSuffix ".lean").toString }
   return out
 
-end Leanlings
+end PLeanlings

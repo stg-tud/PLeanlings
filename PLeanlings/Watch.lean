@@ -1,4 +1,4 @@
-import Leanlings.UI
+import PLeanlings.UI
 
 /-!
 # Watch mode
@@ -7,7 +7,7 @@ Polls the current exercise's modification time and re-checks it on change.
 Commands are read line-by-line from stdin on a separate thread.
 -/
 
-namespace Leanlings
+namespace PLeanlings
 
 private def mtime (p : System.FilePath) : IO IO.FS.SystemTime := do
   return (← p.metadata).modified
@@ -63,7 +63,7 @@ private partial def loop (exs : Array Exercise) (cmds : IO.Ref (Array String))
   match ← advance exs with
   | none =>
     IO.println ""
-    IO.println (green (bold "🎉 Congratulations! You have finished all Leanlings exercises."))
+    IO.println (green (bold "🎉 Congratulations! You have finished all PLeanlings exercises."))
   | some (e, o) =>
     showCurrent exs e o
     loop exs cmds e (← mtime e.exercisePath)
@@ -83,4 +83,4 @@ def watch : IO Unit := do
     showCurrent exs e o
     loop exs cmds e (← mtime e.exercisePath)
 
-end Leanlings
+end PLeanlings

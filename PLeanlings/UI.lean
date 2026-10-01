@@ -1,7 +1,7 @@
-import Leanlings.Check
-import Leanlings.State
+import PLeanlings.Check
+import PLeanlings.State
 
-namespace Leanlings
+namespace PLeanlings
 
 def green (s : String) : String := s!"\x1b[32m{s}\x1b[0m"
 def red (s : String) : String := s!"\x1b[31m{s}\x1b[0m"
@@ -19,7 +19,7 @@ def printProgress (exs : Array Exercise) (done : List String) : IO Unit := do
   let core := exs.filter (!·.isBonus)
   let bonus := exs.filter (·.isBonus)
   let coreDone := core.filter (done.contains ·.id) |>.size
-  IO.println s!"{bold "Leanlings"} — progress: {progressBar coreDone core.size}"
+  IO.println s!"{bold "PLeanlings"} — progress: {progressBar coreDone core.size}"
   if bonus.size > 0 then
     let bonusDone := bonus.filter (done.contains ·.id) |>.size
     IO.println (dim s!"           bonus:    {progressBar bonusDone bonus.size}")
@@ -59,4 +59,4 @@ def printList (exs : Array Exercise) (done : List String) (current : Option Exer
     let mark := if done.contains e.id then green "✓" else if current == some e then yellow "→" else " "
     IO.println s!"  {mark} {e.name}"
 
-end Leanlings
+end PLeanlings

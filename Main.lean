@@ -1,8 +1,8 @@
-import Leanlings
+import PLeanlings
 
-open Leanlings
+open PLeanlings
 
-def usage : String := "Usage: lake exe leanlings [command]
+def usage : String := "Usage: lake exe pleanlings [command]
 
 Commands:
   watch            (default) check the current exercise whenever you save it
@@ -20,7 +20,7 @@ Maintainer commands:
 def findExercise (exs : Array Exercise) (q : String) : IO Exercise := do
   match exs.find? (·.matchesQuery q) with
   | some e => return e
-  | none => throw <| IO.userError s!"No exercise named `{q}`. Try `lake exe leanlings list`."
+  | none => throw <| IO.userError s!"No exercise named `{q}`. Try `lake exe pleanlings list`."
 
 def currentOrNamed (exs : Array Exercise) : List String → IO Exercise
   | [q] => findExercise exs q

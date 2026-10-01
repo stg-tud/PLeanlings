@@ -66,7 +66,7 @@ larger scale.
 You have proven a real theorem of PL metatheory that needs more than "induction
 on the derivation". You strengthened the induction hypothesis to a type-indexed
 logical relation, generalized to open terms via instantiations, and paid the de Bruijn
-bill with a small substitution algebra. This is the end of Leanlings. Well done!
+bill with a small substitution algebra. This is the end of PLeanlings. Well done!
 -/
 
 /-! ## Given (from earlier exercises) — do not edit -/

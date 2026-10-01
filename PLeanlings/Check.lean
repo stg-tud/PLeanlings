@@ -1,5 +1,5 @@
 import Lean.Data.Json
-import Leanlings.Exercise
+import PLeanlings.Exercise
 
 /-!
 # Checking an exercise
@@ -9,7 +9,7 @@ temporary file which is compiled with `lean --json`. The exercise passes when
 there are no errors and no `sorry` warnings.
 -/
 
-namespace Leanlings
+namespace PLeanlings
 
 open Lean (Json)
 
@@ -47,7 +47,7 @@ def readHint (e : Exercise) : IO String := do
   | _ :: rest :: _ => return ((rest.splitOn "-/").headD "").trimAscii.toString
   | _ => return "No hint available for this exercise."
 
-private def tmpDir : System.FilePath := ".lake" / "leanlings"
+private def tmpDir : System.FilePath := ".lake" / "pleanlings"
 
 private def parseDiagnostic (s : String) : Option Diagnostic := do
   let j ← (Json.parse s).toOption
@@ -151,4 +151,4 @@ def checkFile (e : Exercise) (source : System.FilePath) : IO Outcome := do
     return .checkFailed (renderChecks checks studentLines checkErrors)
   return .passed
 
-end Leanlings
+end PLeanlings

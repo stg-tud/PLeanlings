@@ -1,10 +1,10 @@
-name = "leanlings"
+name = "pleanlings"
 version = "0.1.0"
-defaultTargets = ["leanlings"]
+defaultTargets = ["pleanlings"]
 
 [[lean_lib]]
-name = "Leanlings"
+name = "PLeanlings"
 
 [[lean_exe]]
-name = "leanlings"
+name = "pleanlings"
 root = "Main"
